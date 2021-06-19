@@ -1,0 +1,40 @@
+﻿@page
+@model LotusWebApplication.Pages.NationalAviationAuthority.EditModel
+
+@{
+    ViewData["Title"] = "Edit National Aviation Authority";
+}
+
+
+<div class="colorrow neutral header">
+    <label>Edit National Aviation Authority</label>
+</div>
+<form method="post">
+    <div class="colorrow dark tag">
+        <label>Basic Information</label>
+    </div>
+    <div class="row colorrow dark">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="NationalAviationAuthority.NAA_Code" />
+            <div class="form-group">
+                <label asp-for="NationalAviationAuthority.NAA_Desc" class="control-label"></label>
+                <input asp-for="NationalAviationAuthority.NAA_Desc" class="form-control" />
+                <span asp-validation-for="NationalAviationAuthority.NAA_Desc" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="colorrow neutral tag">
+        <label>Form Buttons</label>
+    </div>
+    <div class="row colorrow neutral">
+        <div class="form-group">
+            <a asp-page="Index" class="btn-green borderlessinput">Back to List</a>
+            <input type="submit" value="Edit" class="btn-blue borderlessinput" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

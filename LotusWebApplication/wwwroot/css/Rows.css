@@ -1,0 +1,74 @@
+﻿.form-control, file-label {
+    color: #495057 !important;
+}
+
+div .colorrow {
+    margin: 0 16px 16px 16px;
+    padding: 16px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+div .light {
+    background-color: #dce3f7;
+}
+
+div .tag {
+    margin: auto;
+    padding: 4px !important;
+    text-align: center !important;
+    border-radius: 10px 10px 0px 0px;
+    width: 160px;
+}
+
+div .header {
+    margin: auto;
+    margin-bottom: 32px;
+    font-weight:800;
+    font-size:24px;
+    padding: 8px !important;
+    text-align: center !important;
+    border-radius: 5px 5px 5px 5px;
+    width: 480px;
+    font-family:'Times New Roman';
+}
+
+    div .light label {
+        color: #1e2f63;
+    }
+
+    div .light input:focus, div .light select:focus, div .light textarea:focus {
+        outline: none !important;
+        border: 1px solid #1e2f63;
+        box-shadow: 0 0 10px #719ECE;
+    }
+
+div .light table tr, div .light table td {
+    background-color: #dce3f7 !important;
+    color: #1e2f63 !important;
+}
+
+div .dark {
+    background-color: #1e2f63;
+}
+
+    div .dark label {
+        color: #dce3f7;
+    }
+
+    div .dark input:focus, div .dark select:focus, div .dark textarea:focus {
+        outline: none !important;
+        border: 1px solid #dce3f7;
+        box-shadow: 0 0 10px #719ECE;
+    }
+
+    div .dark table tr, div .dark table tr {
+        background-color: #1e2f63 !important;
+        color: #dce3f7 !important;
+    }
+
+div .neutral {
+    background-color: #e6e6e6;
+}
+    div .neutral label {
+        color: #1a1a1a;
+    }

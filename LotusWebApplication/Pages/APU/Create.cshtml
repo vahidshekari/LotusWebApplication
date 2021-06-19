@@ -1,0 +1,43 @@
+﻿@page
+@model LotusWebApplication.Pages.APU.CreateModel
+
+@{
+    ViewData["Title"] = "Add an APU";
+}
+<div class="colorrow neutral header">
+    <label>Add an APU</label>
+</div>
+<form method="post">
+    <div class="colorrow dark tag">
+        <label>Basic Information</label>
+    </div>
+    <div class="row colorrow dark">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="APU.APU_Description" class="control-label"></label>
+                <input asp-for="APU.APU_Description" class="form-control" />
+                <span asp-validation-for="APU.APU_Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="APU.APU_MAN_Code" class="control-label"></label>
+                <select asp-for="APU.APU_MAN_Code" class="form-control" asp-items="ViewBag.APU_MAN_Code"></select>
+            </div>
+        </div>
+    </div>
+    <div class="colorrow neutral tag">
+        <label>Form Buttons</label>
+    </div>
+    <div class="row colorrow neutral">
+        <div class="form-group">
+            <a asp-page="Index" class="btn-green borderlessinput">Back to List</a>
+            <input type="submit" value="Add" class="btn-blue borderlessinput" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

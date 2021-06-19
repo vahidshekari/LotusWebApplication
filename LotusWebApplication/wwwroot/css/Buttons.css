@@ -1,0 +1,66 @@
+﻿.btn-blue {
+    background-color: #17a2b8;
+    margin: 4px;
+    text-align: center;
+    text-transform: none;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 6px 32px 6px 32px;
+    font-family: Calibri;
+    font-size: 14px;
+}
+
+    .btn-blue:hover {
+        background-color: #076d7d;
+    }
+
+.btn-red {
+    background-color: #dc3545;
+    margin: 4px;
+    text-align: center;
+    text-transform: none;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 6px 32px 6px 32px;
+    font-family: Calibri;
+    font-size: 14px;
+}
+
+    .btn-red:hover {
+        background-color: #b51b2a;
+    }
+
+
+.btn-green {
+    background-color: #25c24a;
+    margin: 4px;
+    text-align: center;
+    text-transform: none;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 6px 32px 6px 32px;
+    font-family: Calibri;
+    font-size: 14px;
+}
+
+    .btn-green:hover {
+        background-color: #179936;
+        color: #fff;
+        text-decoration: none;
+    }
+.borderlessinput {
+    border: 0;
+    border-style: none;
+    border-color: transparent;
+    outline: none;
+    outline-offset: 0;
+}

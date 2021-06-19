@@ -1,0 +1,91 @@
+﻿@page
+@model LotusWebApplication.Pages.CamoDepSetting.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="colorrow neutral header">
+    <label>Camo Dept Setting</label>
+</div>
+<form method="post">
+    <div class="colorrow dark tag">
+        <label>Basic Information</label>
+    </div>
+    <div class="row colorrow dark">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="CamoDepSetting.CDS_Code" />
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CamoDepSetting.CDS_AirlineName" class="control-label"></label>
+                <input asp-for="CamoDepSetting.CDS_AirlineName" class="form-control" />
+                <span asp-validation-for="CamoDepSetting.CDS_AirlineName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CamoDepSetting.CDS_NAACode" class="control-label"></label>
+                <input asp-for="CamoDepSetting.CDS_NAACode" class="form-control" />
+                <span asp-validation-for="CamoDepSetting.CDS_NAACode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-group">
+                <label asp-for="CamoDepSetting.CDS_Address" class="control-label"></label>
+                <textarea asp-for="CamoDepSetting.CDS_Address" class="form-control"></textarea>
+                <span asp-validation-for="CamoDepSetting.CDS_Address" class="text-danger"></span>
+            </div>
+        </div>
+
+    </div>
+    <div class="colorrow light tag">
+        <label>Audit</label>
+    </div>
+    <div class="row colorrow light">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CamoDepSetting.CDS_LastAuditDate" class="control-label"></label>
+                <input asp-for="CamoDepSetting.CDS_LastAuditDate" class="form-control" />
+                <span asp-validation-for="CamoDepSetting.CDS_LastAuditDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CamoDepSetting.CDS_NextAuditDate" class="control-label"></label>
+                <input asp-for="CamoDepSetting.CDS_NextAuditDate" class="form-control" />
+                <span asp-validation-for="CamoDepSetting.CDS_NextAuditDate" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="colorrow dark tag">
+        <label>Contact Info</label>
+    </div>
+    <div class="row colorrow dark">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="CamoDepSetting.CDS_TelephoneNo" class="control-label"></label>
+                <input asp-for="CamoDepSetting.CDS_TelephoneNo" class="form-control" />
+                <span asp-validation-for="CamoDepSetting.CDS_TelephoneNo" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="CamoDepSetting.CDS_EmailAddress" class="control-label"></label>
+                <input asp-for="CamoDepSetting.CDS_EmailAddress" class="form-control" />
+                <span asp-validation-for="CamoDepSetting.CDS_EmailAddress" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="colorrow neutral tag">
+        <label>Form Buttons</label>
+    </div>
+    <div class="row colorrow neutral">
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn-blue borderlessinput" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LotusWebApplication</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/Rows.css" />
+    <link rel="stylesheet" href="~/css/Buttons.css" />
+    <link rel="stylesheet" href="~/css/W3.css" />
+    <link rel="stylesheet" href="~/css/ResponsiveTable.css" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="~/DataTables/datatables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/DataTables/datatables.min.css" />
+</head>
+<body>
+    @*<header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">LotusWebApplication</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>*@
+
+    <div class="w3-sidebar w3-bar-block w3-light-grey w3-card" style="width:20%;margin-top:-32px">
+        <div class="w3-dropdown-hover">
+            <button class="w3-button">
+                CAMO Management
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="w3-dropdown-content w3-bar-block">
+                <a href="/CamoDepSetting/Edit" class="w3-bar-item w3-button">CAMO Dept. Setting</a>
+                <a href="/NationalAviationAuthority/Index" class="w3-bar-item w3-button">National Authorities</a>
+                <a href="/Manufacturers/Index" class="w3-bar-item w3-button">Manufacturers</a>
+                <a href="/APU/Index" class="w3-bar-item w3-button">APUs</a>
+            </div>
+        </div>
+    </div>
+    <div style="margin-left:20%;margin-top:32px">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                fixedHeader: true,
+                dom: 'frtipB',
+                lengthMenu: [
+                    [10, 25, 50, 100, -1],
+                    ['10 rows', '25 rows', '50 rows', '100 rows', 'Show all']
+                ],
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: ':not(:last-child)'
+                        }
+                    },
+                    'pageLength'
+
+                ]
+            });
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+
