@@ -1,0 +1,61 @@
+﻿@page
+@model LotusWebApplication.Pages.Fleet.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Fleet</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fleet.FLT_MSN)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fleet.FLT_MSN)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fleet.FLT_Registration)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fleet.FLT_Registration)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fleet.FLT_MOTW)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fleet.FLT_MOTW)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fleet.FLT_ManufactureDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fleet.FLT_ManufactureDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fleet.FLT_TFH)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fleet.FLT_TFH)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fleet.FLT_TFC)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fleet.FLT_TFC)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fleet.AircraftType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fleet.AircraftType.ACT_Code)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Fleet.FLT_Code">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

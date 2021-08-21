@@ -1,0 +1,160 @@
+﻿@page
+@model LotusWebApplication.Pages.AircraftFlightLog.CreateModel
+
+@{
+    ViewData["Title"] = "Add a Flight Log";
+}
+<div class="colorrow neutral header">
+    <label>Add a Flight Log</label>
+</div>
+<form method="post" enctype="multipart/form-data">
+    <div class="colorrow dark tag">
+        <label>Header</label>
+    </div>
+    <div class="row colorrow dark">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_FLT_Code" class="control-label"></label>
+                <select id="txtFleet" asp-for="AircraftFlightLog.AFL_FLT_Code" class="form-control" asp-items="ViewBag.AFL_FLT_Code"></select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_Date" class="control-label"></label>
+                <input id="txtDate" asp-for="AircraftFlightLog.AFL_Date" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_Date" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_ATLNumber" class="control-label"></label>
+                <input id="txtATLNumber" asp-for="AircraftFlightLog.AFL_ATLNumber" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_ATLNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Attachment</label>
+                <label id="formlabel" style="color: #1e2f63" class="custom-file-label mt-4">Attachment</label>
+                <input id="formfile" type="file" accept="application/pdf" class="custom-file-input form-control border-dark" />
+            </div>
+        </div>     
+    </div>
+    <div class="colorrow light tag">
+        <label>Flight</label>
+    </div>
+    <div class="row colorrow light">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_APT_TakeOff_Code" class="control-label"></label>
+                <select id="txtTakeoffAirport" asp-for="AircraftFlightLog.AFL_APT_TakeOff_Code" class="form-control" asp-items="ViewBag.AFL_APT_TakeOff_Code"></select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_BlockOffTime" class="control-label"></label>
+                <input id="txtBlockOffTime" asp-for="AircraftFlightLog.AFL_BlockOffTime" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_BlockOffTime" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_TakeOffTime" class="control-label"></label>
+                <input id="txtTakeOffTime" asp-for="AircraftFlightLog.AFL_TakeOffTime" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_TakeOffTime" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_APT_Landing_Code" class="control-label"></label>
+                <select id="txtLandingAirport" asp-for="AircraftFlightLog.AFL_APT_Landing_Code" class="form-control" asp-items="ViewBag.AFL_APT_Landing_Code"></select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_LandingTime" class="control-label"></label>
+                <input  id="txtLandingTime" asp-for="AircraftFlightLog.AFL_LandingTime" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_LandingTime" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_BlockOnTime" class="control-label"></label>
+                <input  id="txtBlockOnTime" asp-for="AircraftFlightLog.AFL_BlockOnTime" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_BlockOnTime" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input id="chkToga" class="form-check-input" asp-for="AircraftFlightLog.AFL_IsToga" /> @Html.DisplayNameFor(model => model.AircraftFlightLog.AFL_IsToga)
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="colorrow neutral tag">
+        <label>Form Buttons</label>
+    </div>
+    <div class="row colorrow neutral">
+        <div class="form-group">
+            <a asp-page="Index" class="btn-green borderlessinput">Back to List</a>
+            <input id="btnAdd" style="cursor: pointer;" value="Add" class="btn-blue borderlessinput" />
+        </div>
+    </div>
+</form>
+<script>
+    $('#btnAdd').on("click", function () {
+        var formData = new FormData();
+        formData.append('file', $('#formfile')[0].files[0]);
+        $.ajax({
+            type: 'Post',
+            url: '../api/AircraftFlightLogs/',
+            data: 
+                JSON.stringify({
+                "AFL_FLT_Code": $('#txtFleet option:selected').val(),
+                "AFL_Date": $('#txtDate').val(),
+                "AFL_APT_TakeOff_Code": $('#txtTakeoffAirport option:selected').val(),
+                "AFL_BlockOffTime": $('#txtBlockOffTime').val(),
+                "AFL_TakeOffTime": $('#txtTakeOffTime').val(), 
+                "AFL_APT_Landing_Code": $('#txtLandingAirport option:selected').val(),
+                "AFL_LandingTime": $('#txtLandingTime').val(),
+                "AFL_BlockOnTime": $('#txtBlockOnTime').val(),
+                "AFL_ATLNumber": $('#txtATLNumber').val(),
+                "AFL_IsToga": $('#chkToga').val(),
+
+            }),
+            contentType: 'application/json; charset=utf-8',
+            async: false,
+            dataType: "json",
+            success: function () {
+
+            },
+            error: function (xhRequest, ErrorText, thrownError) {
+                console.log('xhRequest: ' + xhRequest + "\n");
+                console.log('ErrorText: ' + ErrorText + "\n");
+                console.log('thrownError: ' + thrownError + "\n");
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#formfile').on("change", function () {
+            if (this.files[0].size / 1024 / 1024 > 10) {
+                swal({
+                    title: "Error!",
+                    text: "File size is larger than 10 MB!",
+                    type: "error",
+                });
+                $("#formfile").val(null);
+                throw new Error("File size is large!");
+            }
+            var fileName = $('#formfile').val().split("\\").pop();
+            $('#formlabel').html(fileName);
+        });
+    });
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

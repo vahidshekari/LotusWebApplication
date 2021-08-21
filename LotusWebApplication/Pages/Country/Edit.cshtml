@@ -1,0 +1,45 @@
+﻿@page
+@model LotusWebApplication.Pages.Country.EditModel
+
+@{
+    ViewData["Title"] = "Edit Country";
+}
+<div class="colorrow neutral header">
+    <label>Edit Country</label>
+</div>
+<form method="post">
+    <div class="colorrow dark tag">
+        <label>Basic Information</label>
+    </div>
+    <div class="row colorrow dark">
+        <div class="col-md-4">
+            <input type="hidden" asp-for="Country.CNT_Code" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Country.CNT_Name" class="control-label"></label>
+                <input asp-for="Country.CNT_Name" class="form-control" />
+                <span asp-validation-for="Country.CNT_Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Country.CNT_Name_Fa" class="control-label"></label>
+                <input asp-for="Country.CNT_Name_Fa" class="form-control" />
+                <span asp-validation-for="Country.CNT_Name_Fa" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="colorrow neutral tag">
+        <label>Form Buttons</label>
+    </div>
+    <div class="row colorrow neutral">
+        <div class="form-group">
+            <a asp-page="Index" class="btn-green borderlessinput">Back to List</a>
+            <input type="submit" value="Edit" class="btn-blue borderlessinput" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

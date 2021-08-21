@@ -1,0 +1,102 @@
+﻿@page
+@model LotusWebApplication.Pages.AircraftFlightLog.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftFlightLog[0].AFL_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftFlightLog[0].AFL_BlockOffTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftFlightLog[0].AFL_TakeOffTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftFlightLog[0].AFL_LandingTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftFlightLog[0].AFL_BlockOnTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftFlightLog[0].AFL_ATLNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftFlightLog[0].AFL_IsToga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftFlightLog[0].AFL_LegNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftFlightLog[0].AFL_FileAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftFlightLog[0].Fleet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftFlightLog[0].DeptAirport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AircraftFlightLog[0].DestAirport)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AircraftFlightLog) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AFL_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AFL_BlockOffTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AFL_TakeOffTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AFL_LandingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AFL_BlockOnTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AFL_ATLNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AFL_IsToga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AFL_LegNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AFL_FileAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fleet.FLT_Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptAirport.APT_IATACode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DestAirport.APT_IATACode)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AFL_Code">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AFL_Code">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AFL_Code">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

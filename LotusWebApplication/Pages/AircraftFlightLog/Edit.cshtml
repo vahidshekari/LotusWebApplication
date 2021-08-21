@@ -1,0 +1,90 @@
+﻿@page
+@model LotusWebApplication.Pages.AircraftFlightLog.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>AircraftFlightLog</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AircraftFlightLog.AFL_Code" />
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_FLT_Code" class="control-label"></label>
+                <select asp-for="AircraftFlightLog.AFL_FLT_Code" class="form-control" asp-items="ViewBag.AFL_FLT_Code"></select>
+                <span asp-validation-for="AircraftFlightLog.AFL_FLT_Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_Date" class="control-label"></label>
+                <input asp-for="AircraftFlightLog.AFL_Date" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_APT_TakeOff_Code" class="control-label"></label>
+                <select asp-for="AircraftFlightLog.AFL_APT_TakeOff_Code" class="form-control" asp-items="ViewBag.AFL_APT_TakeOff_Code"></select>
+                <span asp-validation-for="AircraftFlightLog.AFL_APT_TakeOff_Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_BlockOffTime" class="control-label"></label>
+                <input asp-for="AircraftFlightLog.AFL_BlockOffTime" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_BlockOffTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_TakeOffTime" class="control-label"></label>
+                <input asp-for="AircraftFlightLog.AFL_TakeOffTime" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_TakeOffTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_APT_Landing_Code" class="control-label"></label>
+                <select asp-for="AircraftFlightLog.AFL_APT_Landing_Code" class="form-control" asp-items="ViewBag.AFL_APT_Landing_Code"></select>
+                <span asp-validation-for="AircraftFlightLog.AFL_APT_Landing_Code" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_LandingTime" class="control-label"></label>
+                <input asp-for="AircraftFlightLog.AFL_LandingTime" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_LandingTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_BlockOnTime" class="control-label"></label>
+                <input asp-for="AircraftFlightLog.AFL_BlockOnTime" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_BlockOnTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_ATLNumber" class="control-label"></label>
+                <input asp-for="AircraftFlightLog.AFL_ATLNumber" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_ATLNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="AircraftFlightLog.AFL_IsToga" /> @Html.DisplayNameFor(model => model.AircraftFlightLog.AFL_IsToga)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_LegNumber" class="control-label"></label>
+                <input asp-for="AircraftFlightLog.AFL_LegNumber" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_LegNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AircraftFlightLog.AFL_FileAddress" class="control-label"></label>
+                <input asp-for="AircraftFlightLog.AFL_FileAddress" class="form-control" />
+                <span asp-validation-for="AircraftFlightLog.AFL_FileAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

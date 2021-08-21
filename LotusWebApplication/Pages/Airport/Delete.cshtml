@@ -1,0 +1,70 @@
+﻿@page
+@model LotusWebApplication.Pages.Airport.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Airport</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_IATACode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_IATACode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_ICAOCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_ICAOCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_NameEn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_NameEn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_NameFa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_NameFa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_ALT_APT_Code_1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_ALT_APT_Code_1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_ALT_APT_Code_2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_ALT_APT_Code_2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_ALT_APT_Code_3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_ALT_APT_Code_3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.City.CTY_Code)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Airport.APT_Code" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

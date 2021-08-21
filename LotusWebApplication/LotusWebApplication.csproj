@@ -20,7 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <Folder Include="wwwroot\assets\EngineTypeCertificate\" />
+    <Folder Include="wwwroot\assets\AircraftTypeCertificate\" />
   </ItemGroup>
 
 </Project>

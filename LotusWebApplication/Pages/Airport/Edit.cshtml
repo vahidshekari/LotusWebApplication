@@ -1,0 +1,97 @@
+﻿@page
+@model LotusWebApplication.Pages.Airport.EditModel
+
+@{
+    ViewData["Title"] = "Edit Airport";
+}
+<div class="colorrow neutral header">
+    <label>Edit Airport</label>
+</div>
+<form method="post">
+    <div class="colorrow dark tag">
+        <label>Basic Information</label>
+    </div>
+    <div class="row colorrow dark">
+        <div class="col-md-4">
+            <input type="hidden" asp-for="Airport.APT_Code" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Airport.APT_IATACode" class="control-label"></label>
+                <input asp-for="Airport.APT_IATACode" class="form-control" />
+                <span asp-validation-for="Airport.APT_IATACode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Airport.APT_ICAOCode" class="control-label"></label>
+                <input asp-for="Airport.APT_ICAOCode" class="form-control" />
+                <span asp-validation-for="Airport.APT_ICAOCode" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Airport.APT_NameEn" class="control-label"></label>
+                <input asp-for="Airport.APT_NameEn" class="form-control" />
+                <span asp-validation-for="Airport.APT_NameEn" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Airport.APT_NameFa" class="control-label"></label>
+                <input asp-for="Airport.APT_NameFa" class="form-control" />
+                <span asp-validation-for="Airport.APT_NameFa" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Airport.APT_CTY_Code" class="control-label"></label>
+                <select asp-for="Airport.APT_CTY_Code" class="form-control" asp-items="ViewBag.APT_CTY_Code"></select>
+            </div>
+        </div>
+    </div>
+    <div class="colorrow light tag">
+        <label>Alternate Airport</label>
+    </div>
+    <div class="row colorrow light">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Airport.APT_ALT_APT_Code_1" class="control-label"></label>
+                <select asp-for="Airport.APT_ALT_APT_Code_1" class="form-control" asp-items="ViewBag.APT_ALT_APT_Code_1">
+                    <option disabled value="" selected>Select Airline</option>
+                </select>
+                <span asp-validation-for="Airport.APT_ALT_APT_Code_1" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Airport.APT_ALT_APT_Code_2" class="control-label"></label>
+                <select asp-for="Airport.APT_ALT_APT_Code_2" class="form-control" asp-items="ViewBag.APT_ALT_APT_Code_2">
+                    <option disabled value="" selected>Select Airline</option>
+                </select>
+                <span asp-validation-for="Airport.APT_ALT_APT_Code_2" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Airport.APT_ALT_APT_Code_3" class="control-label"></label>
+                <select asp-for="Airport.APT_ALT_APT_Code_3" class="form-control" asp-items="ViewBag.APT_ALT_APT_Code_3">
+                    <option disabled value="" selected>Select Airline</option>
+                </select>
+                <span asp-validation-for="Airport.APT_ALT_APT_Code_3" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="colorrow neutral tag">
+        <label>Form Buttons</label>
+    </div>
+    <div class="row colorrow neutral">
+        <div class="form-group">
+            <a asp-page="Index" class="btn-green borderlessinput">Back to List</a>
+            <input type="submit" value="Edit" class="btn-blue borderlessinput" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

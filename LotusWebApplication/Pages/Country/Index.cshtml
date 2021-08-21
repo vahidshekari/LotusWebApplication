@@ -1,0 +1,46 @@
+﻿@page
+@model LotusWebApplication.Pages.Country.IndexModel
+
+@{
+    ViewData["Title"] = "List of Countries";
+}
+
+<div class="colorrow neutral header">
+    <label>List of Countries</label>
+    <div class="row"><a asp-page="Create" class="btn-blue borderlessinput" style="margin:auto">Add</a></div>
+</div>
+<div class="colorrow dark tag">
+    <label>Table</label>
+</div>
+<div class="colorrow dark">
+    <table id="myTable" class="table border" width="100%">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Country[0].CNT_Name)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Country[0].CNT_Name_Fa)
+                </th>
+                <th style="width:20%" scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Country)
+            {
+                <tr>
+                    <td scope="row" data-label="@Html.DisplayNameFor(model => model.Country[0].CNT_Name)">
+                        @Html.DisplayFor(modelItem => item.CNT_Name)
+                    </td>
+                    <td scope="row" data-label="@Html.DisplayNameFor(model => model.Country[0].CNT_Name_Fa)">
+                        @Html.DisplayFor(modelItem => item.CNT_Name_Fa)
+                    </td>
+                    <td scope="row" data-label="Action">
+                        <a asp-page="./Edit" asp-route-id="@item.CNT_Code" class="btn-green">Edit</a>
+                        <a asp-page="./Delete" asp-route-id="@item.CNT_Code" class="btn-red">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

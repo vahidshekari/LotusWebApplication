@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LotusWebApplication.Models
 {
-    [Table("tblNationalAviationAuthority")]
+    [Table("tblNationalAviationAuthority", Schema = "base")]
     public class NationalAviationAuthority
     {
         [Key]

@@ -1,0 +1,52 @@
+﻿@page
+@model LotusWebApplication.Pages.Province.IndexModel
+
+@{
+    ViewData["Title"] = "List of Provinces";
+}
+
+<div class="colorrow neutral header">
+    <label>List of Provinces</label>
+    <div class="row"><a asp-page="Create" class="btn-blue borderlessinput" style="margin:auto">Add</a></div>
+</div>
+<div class="colorrow dark tag">
+    <label>Table</label>
+</div>
+<div class="colorrow dark">
+    <table id="myTable" class="table border" width="100%">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Province[0].PRV_Title_Fa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Province[0].PRV_Title_En)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Province[0].Country)
+                </th>
+                <th style="width:20%" scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Province)
+            {
+                <tr>
+                    <td scope="row" data-label="@Html.DisplayNameFor(model => model.Province[0].PRV_Title_Fa)">
+                        @Html.DisplayFor(modelItem => item.PRV_Title_Fa)
+                    </td>
+                    <td scope="row" data-label="@Html.DisplayNameFor(model => model.Province[0].PRV_Title_En)">
+                        @Html.DisplayFor(modelItem => item.PRV_Title_En)
+                    </td>
+                    <td scope="row" data-label="@Html.DisplayNameFor(model => model.Province[0].PRV_Title_Fa)">
+                        @Html.DisplayFor(modelItem => item.Country.CNT_Name)
+                    </td>
+                    <td scope="row" data-label="Action">
+                        <a asp-page="./Edit" asp-route-id="@item.PRV_Code" class="btn-green">Edit</a>
+                        <a asp-page="./Delete" asp-route-id="@item.PRV_Code" class="btn-red">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

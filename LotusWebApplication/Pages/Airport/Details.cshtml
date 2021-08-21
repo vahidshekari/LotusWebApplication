@@ -1,0 +1,67 @@
+﻿@page
+@model LotusWebApplication.Pages.Airport.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Airport</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_IATACode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_IATACode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_ICAOCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_ICAOCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_NameEn)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_NameEn)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_NameFa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_NameFa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_ALT_APT_Code_1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_ALT_APT_Code_1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_ALT_APT_Code_2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_ALT_APT_Code_2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.APT_ALT_APT_Code_3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.APT_ALT_APT_Code_3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Airport.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Airport.City.CTY_Code)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Airport.APT_Code">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -1,0 +1,70 @@
+﻿@page
+@model LotusWebApplication.Pages.Fleet.IndexModel
+
+@{
+    ViewData["Title"] = "List of Fleet";
+}
+
+<div class="colorrow neutral header">
+    <label>List of Fleet</label>
+    <div class="row"><a asp-page="Create" class="btn-blue borderlessinput" style="margin:auto">Add</a></div>
+</div>
+<div class="colorrow dark tag">
+    <label>Table</label>
+</div>
+<div class="colorrow dark">
+    <table id="myTable" class="table border" width="100%">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Fleet[0].FLT_MSN)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Fleet[0].FLT_Registration)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fleet[0].AircraftType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fleet[0].FLT_ManufactureDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fleet[0].FLT_TFH)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fleet[0].FLT_TFC)
+                </th>
+                <th style="width:20%" scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Fleet)
+            {
+            <tr>
+                <td scope="row" data-label="@Html.DisplayNameFor(model => model.Fleet[0].FLT_MSN)">
+                    @Html.DisplayFor(modelItem => item.FLT_MSN)
+                </td>
+                <td scope="row" data-label="@Html.DisplayNameFor(model => model.Fleet[0].FLT_Registration)">
+                    @Html.DisplayFor(modelItem => item.FLT_Registration)
+                </td>
+                <td scope="row" data-label="@Html.DisplayNameFor(model => model.Fleet[0].AircraftType.ACT_OfficialName)">
+                    @Html.DisplayFor(modelItem => item.AircraftType.ACT_OfficialName)
+                </td>
+                <td scope="row" data-label="@Html.DisplayNameFor(model => model.Fleet[0].FLT_ManufactureDate)">
+                    @Html.DisplayFor(modelItem => item.FLT_ManufactureDate)
+                </td>
+                <td scope="row" data-label="@Html.DisplayNameFor(model => model.Fleet[0].FLT_TFH)">
+                    @Html.DisplayFor(modelItem => item.FLT_TFH)
+                </td>
+                <td scope="row" data-label="@Html.DisplayNameFor(model => model.Fleet[0].FLT_TFC)">
+                    @Html.DisplayFor(modelItem => item.FLT_TFC)
+                </td>
+                <td scope="row" data-label="Action">
+                    <a asp-page="./Edit" asp-route-id="@item.FLT_Code" class="btn-green">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.FLT_Code" class="btn-red">Delete</a>
+                </td>           
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

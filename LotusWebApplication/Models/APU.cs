@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LotusWebApplication.Models
 {
-    [Table("tblAPU")]
+    [Table("tblAPU", Schema = "base")]
     public class APU
     {
         [Key]

@@ -1,0 +1,67 @@
+﻿@page
+@model LotusWebApplication.Pages.AircraftType.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>AircraftType</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AircraftType.ACT_MarketName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AircraftType.ACT_MarketName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AircraftType.ACT_OfficialName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AircraftType.ACT_OfficialName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AircraftType.ACT_NumberofEngines)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AircraftType.ACT_NumberofEngines)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AircraftType.ACT_TypeCertificate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AircraftType.ACT_TypeCertificate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AircraftType.ACT_TCPdfFile)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AircraftType.ACT_TCPdfFile)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AircraftType.Manufacturer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AircraftType.Manufacturer.MAN_Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AircraftType.APU)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AircraftType.APU.APU_Code)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AircraftType.Engines)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AircraftType.Engines.ENG_Code)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.AircraftType.ACT_Code">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

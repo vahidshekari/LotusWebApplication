@@ -1,0 +1,81 @@
+﻿@page
+@model LotusWebApplication.Pages.Engine.CreateModel
+
+@{
+    ViewData["Title"] = "Add an Engine";
+}
+<div class="colorrow neutral header">
+    <label>Add an Engine</label>
+</div>
+<form method="post" enctype="multipart/form-data">
+    <div class="colorrow dark tag">
+        <label>Basic Information</label>
+    </div>
+    <div class="row colorrow dark">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Engines.ENG_Description" class="control-label"></label>
+                <input asp-for="Engines.ENG_Description" class="form-control" />
+                <span asp-validation-for="Engines.ENG_Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Engines.ENG_ThrustRating" class="control-label"></label>
+                <input asp-for="Engines.ENG_ThrustRating" class="form-control" />
+                <span asp-validation-for="Engines.ENG_ThrustRating" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Engines.ENG_MAN_Code" class="control-label"></label>
+                <select asp-for="Engines.ENG_MAN_Code" class="form-control" asp-items="ViewBag.ENG_MAN_Code"></select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Engines.ENG_TypeCertificate" class="control-label"></label>
+                <input asp-for="Engines.ENG_TypeCertificate" class="form-control" />
+                <span asp-validation-for="Engines.ENG_TypeCertificate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Attachment</label>
+                <label id="formlabel" style="color: #1e2f63" class="custom-file-label mt-4">Attachment</label>
+                <input id="formfile" asp-for="@Model.formFile" type="file" accept="application/pdf" class="custom-file-input form-control border-dark" />
+            </div>
+        </div>
+    </div>
+    <div class="colorrow neutral tag">
+        <label>Form Buttons</label>
+    </div>
+    <div class="row colorrow neutral">
+        <div class="form-group">
+            <a asp-page="Index" class="btn-green borderlessinput">Back to List</a>
+            <input type="submit" value="Add" class="btn-blue borderlessinput" />
+        </div>
+    </div>
+</form>
+
+<script>
+    $(document).ready(function () {
+            $('#formfile').on("change", function () {
+                if (this.files[0].size / 1024 / 1024 > 10) {
+                    swal({
+                        title: "Error!",
+                        text: "File size is larger than 10 MB!",
+                        type: "error",
+                    });
+                    $("#formfile").val(null);
+                    throw new Error("File size is large!");
+                }
+                var fileName = $('#formfile').val().split("\\").pop();
+                $('#formlabel').html(fileName);
+            });
+    });
+</script>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

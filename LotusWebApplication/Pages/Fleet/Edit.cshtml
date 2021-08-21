@@ -1,0 +1,80 @@
+﻿@page
+@model LotusWebApplication.Pages.Fleet.EditModel
+
+
+@{
+    ViewData["Title"] = "Edit Fleet";
+}
+<div class="colorrow neutral header">
+    <label>Edit Fleet</label>
+</div>
+<form method="post" enctype="multipart/form-data">
+    <div class="colorrow dark tag">
+        <label>Basic Information</label>
+    </div>
+    <div class="row colorrow dark">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Fleet.FLT_Code" />
+            <div class="form-group">
+                <label asp-for="Fleet.FLT_ACT_Code" class="control-label"></label>
+                <select asp-for="Fleet.FLT_ACT_Code" class="form-control" asp-items="ViewBag.FLT_ACT_Code"></select>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Fleet.FLT_MSN" class="control-label"></label>
+                <input asp-for="Fleet.FLT_MSN" class="form-control" />
+                <span asp-validation-for="Fleet.FLT_MSN" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Fleet.FLT_Registration" class="control-label"></label>
+                <input asp-for="Fleet.FLT_Registration" class="form-control" />
+                <span asp-validation-for="Fleet.FLT_Registration" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Fleet.FLT_MOTW" class="control-label"></label>
+                <input asp-for="Fleet.FLT_MOTW" class="form-control" />
+                <span asp-validation-for="Fleet.FLT_MOTW" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Fleet.FLT_ManufactureDate" class="control-label"></label>
+                <input asp-for="Fleet.FLT_ManufactureDate" class="form-control" />
+                <span asp-validation-for="Fleet.FLT_ManufactureDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Fleet.FLT_TFH" class="control-label"></label>
+                <input asp-for="Fleet.FLT_TFH" class="form-control" />
+                <span asp-validation-for="Fleet.FLT_TFH" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Fleet.FLT_TFC" class="control-label"></label>
+                <input asp-for="Fleet.FLT_TFC" class="form-control" />
+                <span asp-validation-for="Fleet.FLT_TFC" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="colorrow neutral tag">
+        <label>Form Buttons</label>
+    </div>
+    <div class="row colorrow neutral">
+        <div class="form-group">
+            <a asp-page="Index" class="btn-green borderlessinput">Back to List</a>
+            <input type="submit" value="Edit" class="btn-blue borderlessinput" />
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,64 @@
+﻿@page
+@model LotusWebApplication.Pages.Airport.IndexModel
+
+@{
+    ViewData["Title"] = "List of Airports";
+}
+
+<div class="colorrow neutral header">
+    <label>List of Airports</label>
+    <div class="row"><a asp-page="Create" class="btn-blue borderlessinput" style="margin:auto">Add</a></div>
+</div>
+<div class="colorrow dark tag">
+    <label>Table</label>
+</div>
+<div class="colorrow dark">
+    <table id="myTable" class="table border" width="100%">
+        <thead>
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Airport[0].APT_IATACode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Airport[0].APT_ICAOCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Airport[0].APT_NameEn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Airport[0].APT_NameFa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Airport[0].City)
+                </th>
+                <th style="width:20%" scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Airport)
+            {
+            <tr>
+                <td scope="row" data-label="@Html.DisplayNameFor(model => model.Airport[0].APT_IATACode)">
+                    @Html.DisplayFor(modelItem => item.APT_IATACode)
+                </td>
+                <td scope="row" data-label="@Html.DisplayNameFor(model => model.Airport[0].APT_ICAOCode)">
+                    @Html.DisplayFor(modelItem => item.APT_ICAOCode)
+                </td>
+                <td scope="row" data-label="@Html.DisplayNameFor(model => model.Airport[0].APT_NameEn)">
+                    @Html.DisplayFor(modelItem => item.APT_NameEn)
+                </td>
+                <td scope="row" data-label="@Html.DisplayNameFor(model => model.Airport[0].APT_NameFa)">
+                    @Html.DisplayFor(modelItem => item.APT_NameFa)
+                </td>
+                <td scope="row" data-label="@Html.DisplayNameFor(model => model.Airport[0].City)">
+                    @Html.DisplayFor(modelItem => item.City.CTY_Name_En)
+                </td>
+                <td scope="row" data-label="Action">
+                    <a asp-page="./Edit" asp-route-id="@item.APT_Code" class="btn-green">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.APT_Code" class="btn-red">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
