@@ -37,14 +37,14 @@ namespace LotusWebApplication
             services.AddDbContext<AppDBContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
             services.AddControllers().AddNewtonsoftJson();
-            services.Configure<KestrelServerOptions>(options =>
-            {
-                options.AllowSynchronousIO = true;
-            });
-            services.Configure<IISServerOptions>(options =>
-            {
-                options.AllowSynchronousIO = true;
-            });
+            //services.Configure<KestrelServerOptions>(options =>
+            //{
+            //    options.AllowSynchronousIO = true;
+            //});
+            //services.Configure<IISServerOptions>(options =>
+            //{
+            //    options.AllowSynchronousIO = true;
+            //});
             // ADD MEMOERY CACHE
             services.AddDistributedMemoryCache();
             services.AddMemoryCache();

@@ -101,8 +101,9 @@ namespace LotusWebApplication.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<AircraftFlightLog>> PostAircraftFlightLog(AircraftFlightLog aircraftFlightLog, IFormFile file)
+        public async Task<ActionResult<AircraftFlightLog>> PostAircraftFlightLog([FromForm]IFormFile file)
         {
+            AircraftFlightLog aircraftFlightLog = new AircraftFlightLog();
             bool isLastFlight = false;
             if (_context.AircraftFlightLog.Where(a => a.AFL_FLT_Code == aircraftFlightLog.AFL_FLT_Code).Count() == 0)
             {

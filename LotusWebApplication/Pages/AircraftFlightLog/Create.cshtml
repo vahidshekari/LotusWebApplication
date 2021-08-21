@@ -37,7 +37,7 @@
             <div class="form-group">
                 <label class="control-label">Attachment</label>
                 <label id="formlabel" style="color: #1e2f63" class="custom-file-label mt-4">Attachment</label>
-                <input id="formfile" type="file" accept="application/pdf" class="custom-file-input form-control border-dark" />
+                <input id="file" type="file" name="file" class="custom-file-input form-control border-dark" />
             </div>
         </div>     
     </div>
@@ -105,28 +105,52 @@
 </form>
 <script>
     $('#btnAdd').on("click", function () {
-        var formData = new FormData();
-        formData.append('file', $('#formfile')[0].files[0]);
-        $.ajax({
-            type: 'Post',
-            url: '../api/AircraftFlightLogs/',
-            data: 
-                JSON.stringify({
-                "AFL_FLT_Code": $('#txtFleet option:selected').val(),
-                "AFL_Date": $('#txtDate').val(),
-                "AFL_APT_TakeOff_Code": $('#txtTakeoffAirport option:selected').val(),
-                "AFL_BlockOffTime": $('#txtBlockOffTime').val(),
-                "AFL_TakeOffTime": $('#txtTakeOffTime').val(), 
-                "AFL_APT_Landing_Code": $('#txtLandingAirport option:selected').val(),
-                "AFL_LandingTime": $('#txtLandingTime').val(),
-                "AFL_BlockOnTime": $('#txtBlockOnTime').val(),
-                "AFL_ATLNumber": $('#txtATLNumber').val(),
-                "AFL_IsToga": $('#chkToga').val(),
+        //var form = $('form')[0]; // You need to use standard javascript object here
+        //var formData = new FormData(form);
+                //formData.append('file', $('#file')[0].files[0]);
+        //formData.append("AFL_FLT_Code", $('#txtFleet option:selected').val());
+        //formData.append("AFL_Date", $('#txtDate').val());
+        //formData.append("AFL_FLT_Code", $('#txtFleet option:selected').val());
+        //formData.append("AFL_FLT_Code", $('#txtFleet option:selected').val());
 
-            }),
-            contentType: 'application/json; charset=utf-8',
-            async: false,
-            dataType: "json",
+        var formData = new FormData();
+        formData.append("AFL_FLT_Code", $('#txtFleet option:selected').val());
+        formData.append("AFL_Date", $('#txtDate').val());
+        formData.append("AFL_APT_TakeOff_Code", $('#txtTakeoffAirport option:selected').val());
+        formData.append("AFL_BlockOffTime", $('#txtBlockOffTime').val());
+
+        formData.append("AFL_TakeOffTime", $('#txtTakeOffTime').val());
+        formData.append("AFL_APT_Landing_Code", $('#txtLandingAirport option:selected').val());
+        formData.append("AFL_LandingTime", $('#txtLandingTime').val());
+        formData.append("AFL_BlockOnTime", $('#txtBlockOnTime').val());
+
+        formData.append("AFL_ATLNumber", $('#txtATLNumber').val());
+        formData.append("AFL_IsToga", $('#chkToga').val());
+        formData.append("AFL_LegNumber", 0);
+        formData.append("AFL_FileAddress", "");
+
+        //formData.append('aircraftFlightLog', JSON.stringify({
+        //    "AFL_FLT_Code": $('#txtFleet option:selected').val(),
+        //    "AFL_Date": $('#txtDate').val(),
+        //    "AFL_APT_TakeOff_Code": $('#txtTakeoffAirport option:selected').val(),
+        //    "AFL_BlockOffTime": $('#txtBlockOffTime').val(),
+        //    "AFL_TakeOffTime": $('#txtTakeOffTime').val(),
+        //    "AFL_APT_Landing_Code": $('#txtLandingAirport option:selected').val(),
+        //    "AFL_LandingTime": $('#txtLandingTime').val(),
+        //    "AFL_BlockOnTime": $('#txtBlockOnTime').val(),
+        //    "AFL_ATLNumber": $('#txtATLNumber').val(),
+        //    "AFL_IsToga": $('#chkToga').val(),
+        //    "AFL_LegNumber": 0,
+        //    "AFL_FileAddress":""
+        //}));
+
+        formData.append('file', $('#file')[0].files[0]);
+        $.ajax({
+            type: 'POST',
+            url: '../api/AircraftFlightLogs/',
+            data: formData,
+            contentType: false,
+            processData: false,
             success: function () {
 
             },
